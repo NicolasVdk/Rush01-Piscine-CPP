@@ -6,7 +6,7 @@
 /*   By: kperreau <kperreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 18:39:11 by kperreau          #+#    #+#             */
-/*   Updated: 2015/06/27 22:02:21 by kperreau         ###   ########.fr       */
+/*   Updated: 2015/06/27 22:41:35 by kperreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Interface
 
 	private:
 
+		int		_pos[6];
 		int		_y;
 		int		_module;
 		Interface(const Interface & interface);

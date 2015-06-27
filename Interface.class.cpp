@@ -54,11 +54,19 @@ int		Interface::getKey(CPU const & cpu)
 	{
 		case MOD1:
 			this->_module |= 1 << 1;
-			(!(this->_module & (1 << 1))) ? this->_y += cpu.getHeigh() : 0 ;
+			if (!(this->_module & (1 << 1)))
+			{
+				this->_y += cpu.getHeigh();
+				this->_pos[0] = this->_y;
+			}
 			break ;
 		/*case MOD2:
 			this->_module |= 2 << 1;
-			(!(this->_module & (2 << 1))) ? this->_y += ram->getHeigh() : ;
+			if (!(this->_module & (2 << 1)))
+			{
+				this->_y += ram.getHeigh();
+				this->_pos[1] = this->_y;
+			}
 			break ;
 		case MOD3:
 			this->_module |= 3 << 1;
@@ -92,16 +100,17 @@ void	Interface::start(void)
 	{
 		erase();
 		if (this->_module & (1 << 1))
-			cpu.display(this->_y);
+			cpu.display(this->_pos[0]);
 		/*if (this->module & (2 << 1))
-			
+			cpu.display(this->cur[1]);
 		if (this->module & (3 << 1))
-			
+			cpu.display(this->cur[2]);
 		if (this->module & (4 << 1))
-			
+			cpu.display(this->cur[3]);
 		if (this->module & (5 << 1))
-			
+			cpu.display(this->cur[4]);
 		if (this->module & (6 << 1))
+			cpu.display(this->cur[5]);
 		*/
 		wrefresh(stdscr);
 		sleep(1);
