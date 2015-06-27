@@ -1,6 +1,6 @@
 #include "Network.hpp"
 
-Network::Network(void) : _heigh(2)
+Network::Network(void) : _heigh(4)
 {
 	return ;
 }
@@ -23,6 +23,7 @@ void	Network::display(int y)
 
 	sysctlbyname("net.inet.ip.stats", oldp, &oldlen, newp, newlen);
 	struct ipstat * g = (struct ipstat *) oldp;
-	mvprintw(y, 0, "IP packets rcv:   %d\n", g->ips_total);
-	mvprintw(y + 1, 0, "IP packets sent:  %d\n", g->ips_localout);
+	mvprintw(y, 0, "#---- Network ----#");
+	mvprintw(y + 1, 0, "IP packets rcv:   %d\n", g->ips_total);
+	mvprintw(y + 2, 0, "IP packets sent:  %d\n", g->ips_localout);
 }
