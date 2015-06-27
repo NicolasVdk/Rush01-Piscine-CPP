@@ -38,10 +38,10 @@ void	RAM::display(int y)
 		long long used_memory = (static_cast<int64_t>(vm_stats.active_count) +
 			static_cast<int64_t>(vm_stats.inactive_count) +
 			static_cast<int64_t>(vm_stats.wire_count)) * static_cast<int64_t>(page_size);
-		mvprintw(y + 1, 0, "Free memory:  %lld", free_memory);
-		mvprintw(y + 2, 0, "Used memory:  %lld", used_memory);
+		mvprintw(y + 1, 0, " Free memory:  %lld", free_memory);
+		mvprintw(y + 2, 0, " Used memory:  %lld", used_memory);
 	}
-	mvprintw(y + 3, 0, "Total memory: %llu", get_mem());
+	mvprintw(y + 3, 0, " Total memory: %llu", get_mem());
 }
 
 int		RAM::getHeigh(void) const

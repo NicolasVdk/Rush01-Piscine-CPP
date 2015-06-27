@@ -26,5 +26,5 @@ void	Date::display(int y)
 	timeinfo = localtime (&rawtime);
 	strftime (buffer, 25, "%c", timeinfo);
 	mvprintw(y, 0, "#---- Network ----#");
-	mvprintw(y + 1, 0, "%s", buffer);
+	mvprintw(y + 1, 0, " %s", buffer);
 }
