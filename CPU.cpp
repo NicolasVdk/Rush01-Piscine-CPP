@@ -1,7 +1,9 @@
 #include "CPU.hpp"
 
-CPU::CPU( void ) : _heigh(3)
+CPU::CPU( void ) : _heigh(6)
 {
+	size_t	len = sizeof(this->_CPU);
+	sysctlbyname("machdep.cpu.brand_string", &this->_CPU, &len, NULL, 0);
 	this->_SystemTicks = 0;
 	this->_UserTicks = 0;
 	this->_IdleTicks = 0;
@@ -27,9 +29,11 @@ void	CPU::display( int y )
 		this->_previousUserTicks = this->_cpuinfo.cpu_ticks[0];
 		this->_previousSystemTicks = this->_cpuinfo.cpu_ticks[1];
 		this->_previousIdleTicks = this->_cpuinfo.cpu_ticks[2];
-		mvprintw(y + 0, 0, "User : %.2f%%", static_cast<float>(this->_UserTicks) / 4);
-		mvprintw(y + 1, 0, "Sys  : %.2f%%", static_cast<float>(this->_SystemTicks) / 4);
-		mvprintw(y + 2, 0, "Idle : %.2f%%", static_cast<float>(this->_IdleTicks) / 4);
+		mvprintw(y, 0, "#------ CPU ------#");
+		mvprintw(y + 1, 0, "%s", this->_CPU);
+		mvprintw(y + 2, 0, "User : %.2f%%", static_cast<float>(this->_UserTicks) / 4);
+		mvprintw(y + 3, 0, "Sys  : %.2f%%", static_cast<float>(this->_SystemTicks) / 4);
+		mvprintw(y + 4, 0, "Idle : %.2f%%", static_cast<float>(this->_IdleTicks) / 4);
 	}
 }
 
