@@ -19,9 +19,9 @@ void	Name::display( int y )
 
 	mvprintw(y, 0, "#---- Hostname ---#");
 	if (!sysctlbyname("kern.hostname", &hostname, &len, NULL, 0))
-		mvprintw(y + 1, 0, "%s", hostname);
+		mvprintw(y + 1, 1, "%s", hostname);
 	pwd = getpwuid(geteuid());
-	mvprintw(y + 2, 0, "%s", pwd->pw_name);
+	mvprintw(y + 2, 1, "%s", pwd->pw_name);
 }
 
 int		Name::getHeigh(void) const
