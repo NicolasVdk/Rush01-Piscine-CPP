@@ -6,7 +6,7 @@
 #    By: kperreau <kperreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/05 14:10:51 by kperreau          #+#    #+#              #
-#    Updated: 2015/06/27 19:40:37 by kperreau         ###   ########.fr        #
+#    Updated: 2015/06/27 22:02:00 by kperreau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,13 @@ INCLUDESDIR = .
 
 MAIN = main.cpp
 
-CFILES = Interface.class.cpp
+CFILES = Interface.class.cpp CPU.cpp
 
 SRC = $(patsubst %, $(SRCDIR)/%, $(CFILES))
 
 OBJ = $(SRC:.cpp=.o) $(MAIN:.cpp=.o)
 
-HFILES = Interface.class.hpp
+HFILES = Interface.class.hpp CPU.hpp
 
 HEADERS = $(patsubst %, $(INCLUDESDIR)/%, $(HFILES))
 

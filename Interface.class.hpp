@@ -6,7 +6,7 @@
 /*   By: kperreau <kperreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 18:39:11 by kperreau          #+#    #+#             */
-/*   Updated: 2015/06/27 19:04:31 by kperreau         ###   ########.fr       */
+/*   Updated: 2015/06/27 22:02:21 by kperreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include "CPU.hpp"
 
 class Interface
 {
@@ -24,7 +25,7 @@ class Interface
 		~Interface(void);
 
 		void	init_ncurse(void);
-		int		getKey(void);
+		int		getKey(CPU const & cpu);
 		void	start(void);
 
 	private:
