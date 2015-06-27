@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include "CPU.hpp"
+# include "Name.hpp"
 
 class Interface
 {
@@ -25,7 +26,7 @@ class Interface
 		~Interface(void);
 
 		void	init_ncurse(void);
-		int		getKey(CPU const & cpu);
+		int		getKey(CPU const & cpu, Name const & name);
 		void	start(void);
 
 	private:

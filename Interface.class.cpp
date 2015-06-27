@@ -46,29 +46,29 @@ void	Interface::init_ncurse(void)
 	keypad(stdscr, TRUE);
 }
 
-int		Interface::getKey(CPU const & cpu)
+int		Interface::getKey(CPU const & cpu, Name const & name)
 {
 	int		key = 0;
 
 	switch ((key = getch()))
 	{
 		case MOD1:
-			this->_module |= 1 << 1;
 			if (!(this->_module & (1 << 1)))
 			{
-				this->_y += cpu.getHeigh();
+				this->_module |= 1 << 1;
 				this->_pos[0] = this->_y;
+				this->_y += cpu.getHeigh();
 			}
 			break ;
-		/*case MOD2:
-			this->_module |= 2 << 1;
+		case MOD2:
 			if (!(this->_module & (2 << 1)))
 			{
-				this->_y += ram.getHeigh();
+				this->_module |= 2 << 1;
 				this->_pos[1] = this->_y;
+				this->_y += name.getHeigh();
 			}
 			break ;
-		case MOD3:
+		/*case MOD3:
 			this->_module |= 3 << 1;
 			(!(this->_module & (3 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
@@ -94,16 +94,17 @@ void	Interface::start(void)
 	int		key;
 	CPU		cpu;
 	//Ram		ram;
+	Name	name;
 
 	this->init_ncurse();
-	while ((key = this->getKey(cpu)) != ESCAPE)
+	while ((key = this->getKey(cpu, name)) != ESCAPE)
 	{
 		erase();
 		if (this->_module & (1 << 1))
 			cpu.display(this->_pos[0]);
-		/*if (this->module & (2 << 1))
-			cpu.display(this->cur[1]);
-		if (this->module & (3 << 1))
+		if (this->_module & (2 << 1))
+			name.display(this->_pos[1]);
+		/*if (this->module & (3 << 1))
 			cpu.display(this->cur[2]);
 		if (this->module & (4 << 1))
 			cpu.display(this->cur[3]);

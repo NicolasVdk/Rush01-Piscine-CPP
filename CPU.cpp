@@ -1,6 +1,6 @@
 #include "CPU.hpp"
 
-CPU::CPU( void ) : _high(10)
+CPU::CPU( void ) : _heigh(3)
 {
 	this->_SystemTicks = 0;
 	this->_UserTicks = 0;
@@ -40,5 +40,5 @@ CPU::~CPU(void)
 
 int		CPU::getHeigh(void) const
 {
-	return (this->_high);
+	return (this->_heigh);
 }

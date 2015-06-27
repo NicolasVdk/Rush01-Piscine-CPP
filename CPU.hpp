@@ -4,8 +4,6 @@
 # include <mach/mach_error.h>
 # include <mach/mach_host.h>
 # include <mach/vm_map.h>
-# include <iostream>
-# include <curses.h>
 # include <IMonitorDisplay.hpp>
 //# include <IMonitorModule.hpp>
 
@@ -21,7 +19,7 @@ class CPU: public IMonitorDisplay//, public IMonitorModule
 	private:
 		CPU(CPU const & src);
 		CPU &		operator=(CPU const & rhs);
-		int		_high;
+		int		_heigh;
 		unsigned long long _previousIdleTicks;
 		unsigned long long _previousUserTicks;
 		unsigned long long _previousSystemTicks;
