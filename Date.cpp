@@ -1,7 +1,7 @@
 #include "Date.hpp"
 #include <ctime>
 
-Date::Date(void) : _heigh(1)
+Date::Date(void) : _heigh(3)
 {
 	return ;
 }
@@ -25,6 +25,6 @@ void	Date::display(int y)
 	time (&rawtime);
 	timeinfo = localtime (&rawtime);
 	strftime (buffer, 25, "%c", timeinfo);
-
-	mvprintw(y, 0, "%s", buffer);
+	mvprintw(y, 0, "#---- Network ----#");
+	mvprintw(y + 1, 0, "%s", buffer);
 }
