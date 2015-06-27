@@ -6,29 +6,29 @@
 #    By: kperreau <kperreau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/05 14:10:51 by kperreau          #+#    #+#              #
-#    Updated: 2015/06/24 21:35:00 by kperreau         ###   ########.fr        #
+#    Updated: 2015/06/27 19:40:37 by kperreau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = game
+NAME = ft_gkrellm
 
 # Dir vars
 
-SRCDIR = src
+SRCDIR = .
 
-INCLUDESDIR = includes
+INCLUDESDIR = .
 
 # Files vars
 
 MAIN = main.cpp
 
-CFILES = 
+CFILES = Interface.class.cpp
 
 SRC = $(patsubst %, $(SRCDIR)/%, $(CFILES))
 
 OBJ = $(SRC:.cpp=.o) $(MAIN:.cpp=.o)
 
-HFILES = 
+HFILES = Interface.class.hpp
 
 HEADERS = $(patsubst %, $(INCLUDESDIR)/%, $(HFILES))
 
