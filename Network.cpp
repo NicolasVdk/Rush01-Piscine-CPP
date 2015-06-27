@@ -1,13 +1,8 @@
 #include "Network.hpp"
 
-Network::Network(void) : _heigh(30)
+Network::Network(void) : _heigh(3)
 {
 	return ;
-}
-
-Network::Network(Network const & src)
-{
-	*this = src;
 }
 
 Network::~Network(void)
@@ -20,7 +15,17 @@ int		Network::getHeigh(void) const
 		return (this->_heigh);
 }
 
-Network&Network::operator=(Network const & rhs)
+void	Network::display(int y)
 {
-	return *this;
+	void *oldp[1024];// = malloc(1024);
+	size_t oldlen = sizeof(struct ipstat), newlen = 0;
+	void * newp = NULL;
+
+	sysctlbyname("net.inet.ip.stats", oldp, &oldlen, newp, newlen);
+	struct ipstat * g = (struct ipstat *) oldp;
+	mvprintw(y, 0, "IP packets rcv  : %d\n", g->ips_total);
+	mvprintw(y + 1, 0, "IP packets sent : %d\n", g->ips_localout);
+	//printf("IP packets received:        %d\n", g->ips_total);
+	//printf("IP packets generated here:  %d\n", g->ips_localout);
+	(void)y;
 }

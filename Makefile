@@ -10,13 +10,13 @@ INCLUDESDIR = .
 
 MAIN = main.cpp
 
-CFILES = Interface.class.cpp CPU.cpp Name.cpp Date.cpp
+CFILES = Interface.class.cpp CPU.cpp Name.cpp Date.cpp Network.cpp
 
 SRC = $(patsubst %, $(SRCDIR)/%, $(CFILES))
 
 OBJ = $(SRC:.cpp=.o) $(MAIN:.cpp=.o)
 
-HFILES = Interface.class.hpp CPU.hpp Name.hpp Date.hpp
+HFILES = Interface.class.hpp CPU.hpp Name.hpp Date.hpp Network.hpp
 
 HEADERS = $(patsubst %, $(INCLUDESDIR)/%, $(HFILES))
 

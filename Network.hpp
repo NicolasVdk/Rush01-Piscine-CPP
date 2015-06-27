@@ -1,23 +1,29 @@
 #ifndef NETWORK_HPP
 # define NETWORK_HPP
 
-#include "IMonitorDisplay.hpp"
-#include "IMonitorModule.hpp"
+# include "IMonitorModule.hpp"
 
-class Network: public IMonitorDisplay, public IMonitorModule
+# include <sys/types.h>
+# include <sys/sysctl.h>
+# include <sys/socketvar.h>
+# include <netinet/ip.h>
+# include <netinet/ip_var.h>
+
+class Network: public IMonitorModule
 {
 	public:
 		Network(void);
-		Network(Network const & src);
 		~Network(void);
 
-		int			getHeigh(void) const;
+		virtual int		getHeigh(void) const;
+		virtual void	display(int y);
 
-		Network &		operator=(Network const & rhs);
 
 	private:
 		int		_heigh;
 
+		Network &		operator=(Network const & rhs);
+		Network(Network const & src);
 };
 
 #endif
