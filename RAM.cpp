@@ -1,6 +1,6 @@
 #include "RAM.hpp"
 
-RAM::RAM( void ) : _heigh(5)
+RAM::RAM( void ) : _heigh(6)
 {
 
 }
@@ -35,13 +35,15 @@ void	RAM::display(int y)
 		(host_info64_t)&vm_stats, &count))
 	{
 		long long free_memory = static_cast<int64_t>(vm_stats.free_count) * static_cast<int64_t>(page_size);
+		long long wired = static_cast<int64_t>(vm_stats.wire_count) * static_cast<int64_t>(page_size);
 		long long used_memory = (static_cast<int64_t>(vm_stats.active_count) +
 			static_cast<int64_t>(vm_stats.inactive_count) +
 			static_cast<int64_t>(vm_stats.wire_count)) * static_cast<int64_t>(page_size);
-		mvprintw(y + 1, 0, " Free memory:  %lld", free_memory);
-		mvprintw(y + 2, 0, " Used memory:  %lld", used_memory);
+		mvprintw(y + 1, 0, " Free memory:  %lldM", free_memory / 1000000);
+		mvprintw(y + 2, 0, " Wired memory: %lldM", wired / 1000000);
+		mvprintw(y + 3, 0, " Used memory:  %lldM", used_memory / 1000000);
 	}
-	mvprintw(y + 3, 0, " Total memory: %llu", get_mem());
+	mvprintw(y + 4, 0, " Total memory: %lluM", get_mem() / 1000000);
 }
 
 int		RAM::getHeigh(void) const
