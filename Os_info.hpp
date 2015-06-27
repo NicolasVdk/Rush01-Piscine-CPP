@@ -1,7 +1,8 @@
 #ifndef OS_INFO_HPP
 # define OS_INFO_HPP
 
-#include <iostream>
+#include "IMonitorDisplay.hpp"
+#include "IMonitorModule.hpp"
 
 class Os_info: public IMonitorDisplay, public IMonitorModule
 {
@@ -10,12 +11,12 @@ class Os_info: public IMonitorDisplay, public IMonitorModule
 		Os_info(Os_info const & src);
 		~Os_info(void);
 
-		int			getHigh(void) const;
+		int			getHeigh(void) const;
 
 		Os_info &		operator=(Os_info const & rhs);
 
 	private:
-		int		_high;
+		int		_heigh;
 
 };
 

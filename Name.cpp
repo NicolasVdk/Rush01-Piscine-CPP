@@ -1,6 +1,6 @@
 #include "Name.hpp"
 
-Name::Name(void) : _high(30)
+Name::Name(void) : _heigh(30)
 {
 	return ;
 }
@@ -15,9 +15,9 @@ Name::~Name(void)
 	return ;
 }
 
-int		Name::getHigh(void) const
+int		Name::getHeigh(void) const
 {
-		return (this->_high);
+		return (this->_heigh);
 }
 
 Name&Name::operator=(Name const & rhs)

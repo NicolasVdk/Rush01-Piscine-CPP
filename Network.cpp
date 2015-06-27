@@ -1,6 +1,6 @@
 #include "Network.hpp"
 
-Network::Network(void) : _high(30)
+Network::Network(void) : _heigh(30)
 {
 	return ;
 }
@@ -15,9 +15,9 @@ Network::~Network(void)
 	return ;
 }
 
-int		Network::getHigh(void) const
+int		Network::getHeigh(void) const
 {
-		return (this->_high);
+		return (this->_heigh);
 }
 
 Network&Network::operator=(Network const & rhs)

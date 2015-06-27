@@ -1,7 +1,8 @@
 #ifndef DATE_HPP
 # define DATE_HPP
 
-#include <iostream>
+#include "IMonitorDisplay.hpp"
+#include "IMonitorModule.hpp"
 
 class Date: public IMonitorDisplay, public IMonitorModule
 {
@@ -10,12 +11,14 @@ class Date: public IMonitorDisplay, public IMonitorModule
 		Date(Date const & src);
 		~Date(void);
 
-		int			getHigh(void) const;
+		int			getHeigh(void) const;
+
+		void		displayDate(int y) const;
 
 		Date &		operator=(Date const & rhs);
 
 	private:
-		int		_high;
+		int		_heigh;
 
 };
 

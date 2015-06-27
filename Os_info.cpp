@@ -1,6 +1,6 @@
 #include "Os_info.hpp"
 
-Os_info::Os_info(void): _high(30)
+Os_info::Os_info(void): _heigh(30)
 {
 	return ;
 }
@@ -15,9 +15,9 @@ Os_info::~Os_info(void)
 	return ;
 }
 
-int		Os_info::getHigh(void) const
+int		Os_info::getHeigh(void) const
 {
-		return (this->_high);
+		return (this->_heigh);
 }
 
 Os_info & Os_info::operator=(Os_info const & rhs)

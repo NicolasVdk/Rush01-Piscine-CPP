@@ -1,7 +1,8 @@
 #ifndef NETWORK_HPP
 # define NETWORK_HPP
 
-#include <iostream>
+#include "IMonitorDisplay.hpp"
+#include "IMonitorModule.hpp"
 
 class Network: public IMonitorDisplay, public IMonitorModule
 {
@@ -10,12 +11,12 @@ class Network: public IMonitorDisplay, public IMonitorModule
 		Network(Network const & src);
 		~Network(void);
 
-		int			getHigh(void) const;
+		int			getHeigh(void) const;
 
 		Network &		operator=(Network const & rhs);
 
 	private:
-		int		_high;
+		int		_heigh;
 
 };
 

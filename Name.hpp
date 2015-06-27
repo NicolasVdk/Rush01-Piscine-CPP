@@ -1,7 +1,8 @@
 #ifndef NAME_HPP
 # define NAME_HPP
 
-#include <iostream>
+#include "IMonitorDisplay.hpp"
+#include "IMonitorModule.hpp"
 
 class Name: public IMonitorDisplay, public IMonitorModule
 {
@@ -10,12 +11,12 @@ class Name: public IMonitorDisplay, public IMonitorModule
 		Name(Name const & src);
 		~Name(void);
 
-		int			getHigh(void) const;
+		int			getHeigh(void) const;
 
 		Name &		operator=(Name const & rhs);
 
 	private:
-		int		_high;
+		int		_heigh;
 
 };
 
