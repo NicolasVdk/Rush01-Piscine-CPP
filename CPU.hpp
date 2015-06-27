@@ -5,16 +5,18 @@
 # include <mach/mach_host.h>
 # include <mach/vm_map.h>
 # include <iostream>
-# include <curses>
+# include <curses.h>
+# include <IMonitorDisplay.hpp>
+//# include <IMonitorModule.hpp>
 
-class CPU: public IMonitorDisplay, public IMonitorModule
+class CPU: public IMonitorDisplay//, public IMonitorModule
 {
 	public:
 		CPU(void);
 		~CPU(void);
 
-		int			getHigh(void) const;
-		void		displayCPU(void);
+		int			getHeigh(void) const;
+		void		display(int y);
 
 	private:
 		CPU(CPU const & src);

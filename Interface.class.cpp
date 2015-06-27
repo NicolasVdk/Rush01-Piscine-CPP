@@ -1,6 +1,7 @@
 #include "Interface.class.hpp"
-#include ""
 #include <curses.h>
+#include <ctime>
+#include <unistd.h>
 
 #define ESCAPE 27
 #define MOD1	49
@@ -10,7 +11,7 @@
 #define MOD5	53
 #define MOD6	54
 
-Interface::Interface(void) : _y(0)
+Interface::Interface(void) : _y(0), _module(0)
 {
 	return ;
 }
@@ -45,36 +46,37 @@ void	Interface::init_ncurse(void)
 	keypad(stdscr, TRUE);
 }
 
-int		Interface::getKey(void)
+int		Interface::getKey(CPU const & cpu)
 {
 	int		key = 0;
 
 	switch ((key = getch()))
 	{
 		case MOD1:
-			this->_module |= 0 << 1;
-			(this->_module & (0 << 1)) ? this->_y += ram->getHeigh() : ;
+			this->_module |= 1 << 1;
+			(!(this->_module & (1 << 1))) ? this->_y += cpu.getHeigh() : 0 ;
 			break ;
 		/*case MOD2:
-			this->_module |= 1 << 1;
-			(this->_module & (1 << 1)) ? this->_y += ram->getHeigh() : ;
+			this->_module |= 2 << 1;
+			(!(this->_module & (2 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
 		case MOD3:
-			this->_module |= 2 << 1;
-			(this->_module & (2 << 1)) ? this->_y += ram->getHeigh() : ;
+			this->_module |= 3 << 1;
+			(!(this->_module & (3 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
 		case MOD4:
-			this->_module |= 3 << 1;
-			(this->_module & (3 << 1)) ? this->_y += ram->getHeigh() : ;
+			this->_module |= 4 << 1;
+			(!(this->_module & (4 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
 		case MOD5:
-			this->_module |= 4 << 1;
-			(this->_module & (4 << 1)) ? this->_y += ram->getHeigh() :  ;
+			this->_module |= 5 << 1;
+			(!(this->_module & (5 << 1))) ? this->_y += ram->getHeigh() :  ;
 			break ;
-		case MOD6: this->_module |= 5 << 1;
-			(this->_module & (5 << 1)) ? this->_y += ram->getHeigh() : ;
+		case MOD6: this->_module |= 6 << 1;
+			(!(this->_module & (6 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
-		default: mvprintw(0, 0, "key: %d", key);*/
+		//default: mvprintw(0, 0, "key: %d", key);
+		*/
 	}
 	return (key);
 }
@@ -86,19 +88,22 @@ void	Interface::start(void)
 	//Ram		ram;
 
 	this->init_ncurse();
-	while ((key = this->getKey()) != ESCAPE)
+	while ((key = this->getKey(cpu)) != ESCAPE)
 	{
-		if (this->_module & (0 << 1))
+		erase();
+		if (this->_module & (1 << 1))
 			cpu.display(this->_y);
-		/*if (this->module & (1 << 1))
-			
-		if (this->module & (2 << 1))
+		/*if (this->module & (2 << 1))
 			
 		if (this->module & (3 << 1))
 			
 		if (this->module & (4 << 1))
 			
-		if (this->module & (5 << 1))*/
+		if (this->module & (5 << 1))
 			
+		if (this->module & (6 << 1))
+		*/
+		wrefresh(stdscr);
+		sleep(1);
 	}
 }
