@@ -1,13 +1,18 @@
 #include "Os_info.hpp"
+#include <sys/sysctl.h>
+#include <iostream>
 
-Os_info::Os_info(void): _heigh(30)
+Os_info::Os_info(void) : _heigh(1)
 {
-	return ;
-}
+	size_t			len;
+	char			str[1048];
 
-Os_info::Os_info(Os_info const & src)
-{
-	*this = src;
+	len = 1024;
+	sysctlbyname("kern.ostype", str, &len, NULL, 0);
+	this->_osType = str;
+	len = 1024;
+	sysctlbyname("kern.osrelease", str, &len, NULL, 0);
+	this->_osRelease = str;
 }
 
 Os_info::~Os_info(void)
@@ -20,7 +25,12 @@ int		Os_info::getHeigh(void) const
 		return (this->_heigh);
 }
 
-Os_info & Os_info::operator=(Os_info const & rhs)
+void	Os_info::display(int y)
 {
-	return *this;
+	mvprintw(y, 1, "Kernel version: %s", this->_osType.c_str());
+	mvprintw(y + 1, 1, "%s", this->_osRelease.c_str());
+	if (atoi(this->_osRelease.c_str()) == 14)
+		mvprintw(y + 2, 1, "Product version: Yosemite");
+	else if (atoi(this->_osRelease.c_str()) == 13)
+		mvprintw(y + 2, 1, "Product version: Maverick");
 }
