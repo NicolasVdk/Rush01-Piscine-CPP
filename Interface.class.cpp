@@ -3,7 +3,8 @@
 #include <ctime>
 #include <unistd.h>
 
-#define ESCAPE 27
+#define ESCAPE	27
+#define RESET	330
 #define MOD1	49
 #define MOD2	50
 #define MOD3	51
@@ -95,8 +96,12 @@ int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Ne
 		/*case MOD6: this->_module |= 6 << 1;
 			(!(this->_module & (6 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
-		//default: mvprintw(0, 0, "key: %d", key);
 		*/
+		case RESET:
+			this->_y = 0;
+			this->_module = 0;
+			break ;
+		//default: mvprintw(0, 0, "key: %d", key);
 	}
 	return (key);
 }
