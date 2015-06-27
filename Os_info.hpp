@@ -1,11 +1,10 @@
 #ifndef OS_INFO_HPP
 # define OS_INFO_HPP
 
-#include "IMonitorDisplay.hpp"
 #include "IMonitorModule.hpp"
 #include <string>
 
-class Os_info: public IMonitorDisplay, public IMonitorModule
+class Os_info: public IMonitorModule
 {
 	public:
 		Os_info(void);
@@ -18,6 +17,7 @@ class Os_info: public IMonitorDisplay, public IMonitorModule
 		int			_heigh;
 		std::string	_osRelease;
 		std::string	_osType;
+		std::string _osName;
 
 		Os_info(Os_info const & src);
 
