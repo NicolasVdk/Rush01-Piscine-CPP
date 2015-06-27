@@ -1,6 +1,6 @@
 #include "Name.hpp"
 
-Name::Name(void) : _heigh(2)
+Name::Name(void) : _heigh(4)
 {
 	return ;
 }
@@ -17,10 +17,11 @@ void	Name::display( int y )
 	size_t	len = sizeof(hostname);
 	struct 	passwd *pwd;
 
+	mvprintw(y, 0, "#---- Hostname ---#");
 	if (!sysctlbyname("kern.hostname", &hostname, &len, NULL, 0))
-		mvprintw(y, 0, "%s", hostname);
+		mvprintw(y + 1, 1, "%s", hostname);
 	pwd = getpwuid(geteuid());
-	mvprintw(y + 1, 0, "%s", pwd->pw_name);
+	mvprintw(y + 2, 1, "%s", pwd->pw_name);
 }
 
 int		Name::getHeigh(void) const

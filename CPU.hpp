@@ -4,6 +4,7 @@
 # include <mach/mach_error.h>
 # include <mach/mach_host.h>
 # include <mach/vm_map.h>
+# include <sys/sysctl.h>
 # include "IMonitorModule.hpp"
 
 class CPU: public IMonitorModule
@@ -19,6 +20,7 @@ class CPU: public IMonitorModule
 		CPU(CPU const & src);
 		CPU &		operator=(CPU const & rhs);
 		int		_heigh;
+		char	_CPU[1024];
 		unsigned long long _previousIdleTicks;
 		unsigned long long _previousUserTicks;
 		unsigned long long _previousSystemTicks;
