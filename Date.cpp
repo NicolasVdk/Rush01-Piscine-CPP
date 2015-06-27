@@ -20,11 +20,11 @@ void	Date::display(int y)
 {
 	time_t	rawtime;
 	struct	tm* timeinfo;
-	char 	buffer[16];
+	char 	buffer[25];
 
 	time (&rawtime);
 	timeinfo = localtime (&rawtime);
-	strftime (buffer, 16, "%G%m%e_%H%M%S", timeinfo);
+	strftime (buffer, 25, "%c", timeinfo);
 
 	mvprintw(y, 0, "%s", buffer);
 }
