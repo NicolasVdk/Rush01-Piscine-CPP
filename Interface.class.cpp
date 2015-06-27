@@ -47,7 +47,7 @@ void	Interface::init_ncurse(void)
 	keypad(stdscr, TRUE);
 }
 
-int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net, RAM const & ram)
+int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net, RAM const & ram, Os_info const & os)
 {
 	int		key = 0;
 
@@ -93,10 +93,14 @@ int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Ne
 				this->_y += ram.getHeigh();
 			}
 			break ;
-		/*case MOD6: this->_module |= 6 << 1;
-			(!(this->_module & (6 << 1))) ? this->_y += ram->getHeigh() : ;
+		case MOD6:
+			if (!(this->_module & (1 << 6)))
+			{
+				this->_module |= 1 << 6;
+				this->_pos[5] = this->_y;
+				this->_y += os.getHeigh();
+			}
 			break ;
-		*/
 		case RESET:
 			this->_y = 0;
 			this->_module = 0;
@@ -114,9 +118,10 @@ void	Interface::start(void)
 	Name	name;
 	Date	date;
 	Network	net;
+	Os_info	os;
 
 	this->init_ncurse();
-	while ((key = this->getKey(cpu, name, date, net, ram)) != ESCAPE)
+	while ((key = this->getKey(cpu, name, date, net, ram, os)) != ESCAPE)
 	{
 		erase();
 		if (this->_module & (1 << 1))
@@ -129,9 +134,8 @@ void	Interface::start(void)
 			net.display(this->_pos[3]);
 		if (this->_module & (1 << 5))
 			ram.display(this->_pos[4]);
-		/*if (this->_module & (1 << 6))
-			cpu.display(this->_pos[5]);
-		*/
+		if (this->_module & (1 << 6))
+			os.display(this->_pos[5]);
 		wrefresh(stdscr);
 		sleep(1);
 	}
