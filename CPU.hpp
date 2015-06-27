@@ -4,17 +4,16 @@
 # include <mach/mach_error.h>
 # include <mach/mach_host.h>
 # include <mach/vm_map.h>
-# include <IMonitorDisplay.hpp>
-//# include <IMonitorModule.hpp>
+# include "IMonitorModule.hpp"
 
-class CPU: public IMonitorDisplay//, public IMonitorModule
+class CPU: public IMonitorModule
 {
 	public:
 		CPU(void);
 		~CPU(void);
 
-		int			getHeigh(void) const;
-		void		display(int y);
+		virtual int			getHeigh(void) const;
+		virtual void		display(int y);
 
 	private:
 		CPU(CPU const & src);

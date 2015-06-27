@@ -21,7 +21,7 @@ int		Date::getHeigh(void) const
 		return (this->_heigh);
 }
 
-void	Date::displayDate(int y) const
+void	Date::display(int y)
 {
 	time_t	rawtime;
 	struct	tm* timeinfo;

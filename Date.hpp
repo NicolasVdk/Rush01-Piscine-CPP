@@ -11,9 +11,9 @@ class Date: public IMonitorDisplay, public IMonitorModule
 		Date(Date const & src);
 		~Date(void);
 
-		int			getHeigh(void) const;
+		virtual int			getHeigh(void) const;
 
-		void		displayDate(int y) const;
+		virtual void		display(int y);
 
 		Date &		operator=(Date const & rhs);
 
