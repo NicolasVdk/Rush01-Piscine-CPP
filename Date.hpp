@@ -1,10 +1,9 @@
 #ifndef DATE_HPP
 # define DATE_HPP
 
-#include "IMonitorDisplay.hpp"
 #include "IMonitorModule.hpp"
 
-class Date: public IMonitorDisplay, public IMonitorModule
+class Date: public IMonitorModule
 {
 	public:
 		Date(void);
