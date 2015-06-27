@@ -5,6 +5,7 @@
 # include <mach/mach_host.h>
 # include <mach/vm_map.h>
 # include <iostream>
+# include <curses>
 
 class CPU: public IMonitorDisplay, public IMonitorModule
 {
