@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Interface.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kperreau <kperreau@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/27 18:41:10 by kperreau          #+#    #+#             */
-/*   Updated: 2015/06/27 19:40:01 by kperreau         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Interface.class.hpp"
+#include ""
 #include <curses.h>
 
 #define ESCAPE 27
@@ -62,26 +51,54 @@ int		Interface::getKey(void)
 
 	switch ((key = getch()))
 	{
-		case MOD1: break ;
-		case MOD2: break ;
-		case MOD3: break ;
-		case MOD4: break ;
-		case MOD5: break ;
-		case MOD6: break ;
-		//default: mvprintw(0, 0, "key: %d", key);
+		case MOD1:
+			this->_module |= 0 << 1;
+			(this->_module & (0 << 1)) ? this->_y += ram->getHeigh() : ;
+			break ;
+		/*case MOD2:
+			this->_module |= 1 << 1;
+			(this->_module & (1 << 1)) ? this->_y += ram->getHeigh() : ;
+			break ;
+		case MOD3:
+			this->_module |= 2 << 1;
+			(this->_module & (2 << 1)) ? this->_y += ram->getHeigh() : ;
+			break ;
+		case MOD4:
+			this->_module |= 3 << 1;
+			(this->_module & (3 << 1)) ? this->_y += ram->getHeigh() : ;
+			break ;
+		case MOD5:
+			this->_module |= 4 << 1;
+			(this->_module & (4 << 1)) ? this->_y += ram->getHeigh() :  ;
+			break ;
+		case MOD6: this->_module |= 5 << 1;
+			(this->_module & (5 << 1)) ? this->_y += ram->getHeigh() : ;
+			break ;
+		default: mvprintw(0, 0, "key: %d", key);*/
 	}
 	return (key);
 }
 
 void	Interface::start(void)
 {
+	int		key;
+	CPU		cpu;
+	//Ram		ram;
+
 	this->init_ncurse();
-	while (this->getKey() != ESCAPE)
+	while ((key = this->getKey()) != ESCAPE)
 	{
-		switch()
-		{
-			case : break ;
-		}
-		//mvprintw(0, 0, "key: %d", this->getKey());
+		if (this->_module & (0 << 1))
+			cpu.display(this->_y);
+		/*if (this->module & (1 << 1))
+			
+		if (this->module & (2 << 1))
+			
+		if (this->module & (3 << 1))
+			
+		if (this->module & (4 << 1))
+			
+		if (this->module & (5 << 1))*/
+			
 	}
 }
