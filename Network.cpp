@@ -17,7 +17,7 @@ int		Network::getHeigh(void) const
 
 void	Network::display(int y)
 {
-	void *oldp[1024];// = malloc(1024);
+	void *oldp[1024];
 	size_t oldlen = sizeof(struct ipstat), newlen = 0;
 	void * newp = NULL;
 
@@ -25,7 +25,4 @@ void	Network::display(int y)
 	struct ipstat * g = (struct ipstat *) oldp;
 	mvprintw(y, 0, "IP packets rcv  : %d\n", g->ips_total);
 	mvprintw(y + 1, 0, "IP packets sent : %d\n", g->ips_localout);
-	//printf("IP packets received:        %d\n", g->ips_total);
-	//printf("IP packets generated here:  %d\n", g->ips_localout);
-	(void)y;
 }
