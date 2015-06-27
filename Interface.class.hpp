@@ -7,6 +7,7 @@
 # include "Name.hpp"
 # include "Date.hpp"
 # include "Network.hpp"
+# include "RAM.hpp"
 
 class Interface
 {
@@ -16,7 +17,7 @@ class Interface
 		~Interface(void);
 
 		void	init_ncurse(void);
-		int		getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net);
+		int		getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net, RAM const & ram);
 		void	start(void);
 
 	private:

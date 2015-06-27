@@ -46,7 +46,7 @@ void	Interface::init_ncurse(void)
 	keypad(stdscr, TRUE);
 }
 
-int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net)
+int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net, RAM const & ram)
 {
 	int		key = 0;
 
@@ -84,11 +84,15 @@ int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Ne
 				this->_y += net.getHeigh();
 			}
 			break ;
-		/*case MOD5:
-			this->_module |= 5 << 1;
-			(!(this->_module & (5 << 1))) ? this->_y += ram->getHeigh() :  ;
+		case MOD5:
+			if (!(this->_module & (1 << 5)))
+			{
+				this->_module |= 1 << 5;
+				this->_pos[4] = this->_y;
+				this->_y += ram.getHeigh();
+			}
 			break ;
-		case MOD6: this->_module |= 6 << 1;
+		/*case MOD6: this->_module |= 6 << 1;
 			(!(this->_module & (6 << 1))) ? this->_y += ram->getHeigh() : ;
 			break ;
 		//default: mvprintw(0, 0, "key: %d", key);
@@ -101,13 +105,13 @@ void	Interface::start(void)
 {
 	int		key;
 	CPU		cpu;
-	//Ram		ram;
+	RAM		ram;
 	Name	name;
 	Date	date;
 	Network	net;
 
 	this->init_ncurse();
-	while ((key = this->getKey(cpu, name, date, net)) != ESCAPE)
+	while ((key = this->getKey(cpu, name, date, net, ram)) != ESCAPE)
 	{
 		erase();
 		if (this->_module & (1 << 1))
@@ -118,9 +122,9 @@ void	Interface::start(void)
 			date.display(this->_pos[2]);
 		if (this->_module & (1 << 4))
 			net.display(this->_pos[3]);
-		/*if (this->_module & (1 << 5))
-			cpu.display(this->_pos[4]);
-		if (this->_module & (1 << 6))
+		if (this->_module & (1 << 5))
+			ram.display(this->_pos[4]);
+		/*if (this->_module & (1 << 6))
 			cpu.display(this->_pos[5]);
 		*/
 		wrefresh(stdscr);
