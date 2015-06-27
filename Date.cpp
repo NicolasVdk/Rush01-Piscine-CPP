@@ -1,14 +1,9 @@
 #include "Date.hpp"
 #include <ctime>
 
-Date::Date(void) : _heigh(30)
+Date::Date(void) : _heigh(1)
 {
 	return ;
-}
-
-Date::Date(Date const & src)
-{
-	*this = src;
 }
 
 Date::~Date(void)
@@ -31,10 +26,5 @@ void	Date::display(int y)
 	timeinfo = localtime (&rawtime);
 	strftime (buffer, 16, "%G%m%e_%H%M%S", timeinfo);
 
-	mvprintw(y, 3, "%s", buffer);
-}
-
-Date&Date::operator=(Date const & rhs)
-{
-	return *this;
+	mvprintw(y, 0, "%s", buffer);
 }

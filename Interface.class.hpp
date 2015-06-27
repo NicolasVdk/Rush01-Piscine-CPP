@@ -5,6 +5,7 @@
 # include <string>
 # include "CPU.hpp"
 # include "Name.hpp"
+# include "Date.hpp"
 
 class Interface
 {
@@ -14,7 +15,7 @@ class Interface
 		~Interface(void);
 
 		void	init_ncurse(void);
-		int		getKey(CPU const & cpu, Name const & name);
+		int		getKey(CPU const & cpu, Name const & name, Date const & date);
 		void	start(void);
 
 	private:
