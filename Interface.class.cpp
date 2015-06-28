@@ -105,7 +105,6 @@ int		Interface::getKey(CPU const & cpu, Name const & name, Date const & date, Ne
 			this->_y = 0;
 			this->_module = 0;
 			break ;
-		//default: mvprintw(0, 0, "key: %d", key);
 	}
 	return (key);
 }

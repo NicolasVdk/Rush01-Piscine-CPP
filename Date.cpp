@@ -28,18 +28,3 @@ void	Date::display(int y)
 	mvprintw(y, 0, "#------ Date -----#");
 	mvprintw(y + 1, 0, " %s", buffer);
 }
-
-void	Date::displayMlx( int y , void  *mlx, void *win )
-{
-	(void)y;
-	/*time_t	rawtime;
-	struct	tm* timeinfo;
-	char 	buffer[25];
-
-	time (&rawtime);
-	timeinfo = localtime (&rawtime);
-	strftime (buffer, 25, "%c", timeinfo);
-	mvprintw(y, 0, "#------ Date -----#");
-	mvprintw(y + 1, 0, " %s", buffer);
-	*/
-}

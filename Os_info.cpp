@@ -51,15 +51,3 @@ void	Os_info::display(int y)
 	mvprintw(y + 4, 1, "Product version: %s", this->_osName.c_str());
 }
 
-void	Os_info::displayMlx(int y)
-{
-	(void)y;
-	/*mvprintw(y, 0, "#---- OS Info ----#");
-	mvprintw(y + 1, 1, "Kernel name:     %s", this->_osType.c_str());
-	mvprintw(y + 2, 1, "Kernel version:  %s", this->_osRelease.c_str());
-	if (atoi(this->_osRelease.c_str()) == 14)
-		mvprintw(y + 3, 1, "Product name:    Yosemite");
-	else if (atoi(this->_osRelease.c_str()) == 13)
-		mvprintw(y + 3, 1, "Product name:    Maverick");
-	mvprintw(y + 4, 1, "Product version: %s", this->_osName.c_str());*/
-}
