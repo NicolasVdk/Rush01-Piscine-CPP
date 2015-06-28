@@ -3,11 +3,9 @@
 
 CPU::CPU( void ) : _heigh(6)
 {
-	char	buf[1024];
 	size_t	len = sizeof(this->_CPU);
 	sysctlbyname("machdep.cpu.brand_string", &this->_CPU, &len, NULL, 0);
-	sysctlbyname("hw.ncpu", &buf, &len, NULL, 0);
-	this->_nCPU = atoi(buf);
+	sysctlbyname("hw.ncpu", &this->_nCPU, &len, NULL, 0);
 	this->_SystemTicks = 0;
 	this->_UserTicks = 0;
 	this->_IdleTicks = 0;
