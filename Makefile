@@ -18,11 +18,13 @@ OBJ = $(SRC:.cpp=.o) $(MAIN:.cpp=.o)
 
 HFILES = Interface.class.hpp CPU.hpp Name.hpp Date.hpp Network.hpp RAM.hpp Os_info.hpp
 
+MLX = -L./mlx -framework OpenGL -framework AppKit -lmlx
+
 HEADERS = $(patsubst %, $(INCLUDESDIR)/%, $(HFILES))
 
 # COMPILATION
 
-ERRORFLAGS = -O3 -Wall -Werror -Wextra
+ERRORFLAGS = -O3 -Wall -Werror -Wextra -march=native
 
 INCLUDEFLAGS = -I $(INCLUDESDIR)/
 
@@ -37,7 +39,7 @@ CC = clang++
 all: $(NAME)
 
 $(NAME): $(OBJ)
-			@$(CC) -g $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
+			$(CC) -g $(FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
 
 re: fclean all
 
