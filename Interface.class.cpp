@@ -23,7 +23,7 @@ Interface::~Interface(void)
 	return ;
 }
 
-void	Interface::init_ncurse(void)
+void	Interface::init(void)
 {
 	initscr();
 	start_color();
@@ -120,7 +120,7 @@ void	Interface::start(void)
 	Network	net;
 	Os_info	os;
 
-	this->init_ncurse();
+	this->init();
 	while ((key = this->getKey(cpu, name, date, net, ram, os)) != ESCAPE)
 	{
 		erase();

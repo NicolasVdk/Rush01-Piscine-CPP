@@ -17,7 +17,7 @@ class Interface
 		Interface(void);
 		~Interface(void);
 
-		void	init_ncurse(void);
+		void	init(void);
 		int		getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net, RAM const & ram, Os_info const & os);
 		void	start(void);
 
