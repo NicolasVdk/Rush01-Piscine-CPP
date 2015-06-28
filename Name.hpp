@@ -10,7 +10,7 @@ class Name: public IMonitorModule
 {
 	public:
 		Name(void);
-		~Name(void);
+		virtual ~Name(void);
 
 		virtual int			getHeigh(void) const;
 		virtual void		display( int y );

@@ -13,7 +13,7 @@ class Network: public IMonitorModule
 {
 	public:
 		Network(void);
-		~Network(void);
+		virtual ~Network(void);
 
 		virtual int		getHeigh(void) const;
 		virtual void	display(int y);

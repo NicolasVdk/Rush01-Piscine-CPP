@@ -11,7 +11,7 @@ class CPU: public IMonitorModule
 {
 	public:
 		CPU(void);
-		~CPU(void);
+		virtual ~CPU(void);
 
 		virtual int			getHeigh(void) const;
 		virtual void		display(int y);

@@ -1,5 +1,5 @@
-#ifndef INTERFACE_CLASS_HPP
-# define INTERFACE_CLASS_HPP
+#ifndef MLX_CLASS_HPP
+# define MLX_CLASS_HPP
 
 # include <iostream>
 # include <string>
@@ -11,12 +11,12 @@
 # include "Os_info.hpp"
 # include "IMonitorDisplay.hpp"
 
-class Interface: public IMonitorDisplay
+class mlx: public IMonitorDisplay
 {
 	public:
 
-		Interface(void);
-		virtual ~Interface(void);
+		mlx(void);
+		virtual ~mlx(void);
 
 		virtual void	init(void);
 		virtual int		getKey(CPU const & cpu, Name const & name, Date const & date, Network const & net, RAM const & ram, Os_info const & os);
@@ -27,8 +27,8 @@ class Interface: public IMonitorDisplay
 		int		_pos[6];
 		int		_y;
 		int		_module;
-		Interface(const Interface & interface);
-		Interface &operator=(const Interface & interface);
+		mlx(const mlx & interface);
+		mlx &operator=(const mlx & interface);
 };
 
 #endif

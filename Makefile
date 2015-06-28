@@ -10,7 +10,7 @@ INCLUDESDIR = .
 
 MAIN = main.cpp
 
-CFILES = Interface.class.cpp CPU.cpp Name.cpp Date.cpp Network.cpp RAM.cpp Os_info.cpp
+CFILES = Interface.class.cpp CPU.cpp Name.cpp Date.cpp Network.cpp RAM.cpp Os_info.cpp mlx.class.cpp
 
 SRC = $(patsubst %, $(SRCDIR)/%, $(CFILES))
 

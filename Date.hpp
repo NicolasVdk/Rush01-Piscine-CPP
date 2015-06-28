@@ -7,7 +7,7 @@ class Date: public IMonitorModule
 {
 	public:
 		Date(void);
-		~Date(void);
+		virtual ~Date(void);
 
 		virtual int			getHeigh(void) const;
 
