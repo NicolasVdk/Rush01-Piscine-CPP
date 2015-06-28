@@ -31,6 +31,7 @@ void	Date::display(int y)
 
 void	Date::displayMlx(int y)
 {
+	(void)y;
 	/*time_t	rawtime;
 	struct	tm* timeinfo;
 	char 	buffer[25];

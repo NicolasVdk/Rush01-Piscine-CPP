@@ -26,6 +26,7 @@ void	Name::display( int y )
 
 void	Name::displayMlx( int y )
 {
+	(void)y;
 	/*char	hostname[1024];
 	size_t	len = sizeof(hostname);
 	struct 	passwd *pwd;

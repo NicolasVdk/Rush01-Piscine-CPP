@@ -48,6 +48,7 @@ void	RAM::display(int y)
 
 void	RAM::displayMlx(int y)
 {
+	(void)y;
 /*	vm_size_t page_size;
 	mach_port_t mach_port;
 	mach_msg_type_number_t count;

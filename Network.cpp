@@ -30,6 +30,7 @@ void	Network::display(int y)
 
 void	Network::displayMlx(int y)
 {
+	(void)y;
 	/*
 	void *oldp[1024];
 	size_t oldlen = sizeof(struct ipstat), newlen = 0;
