@@ -39,8 +39,8 @@ void	CPU::display( int y )
 	}
 }
 
-void	CPU::displayMlx( int y )
-{
+void	CPU::displayMlx( int y , void  *mlx, void *win )
+{i
 	(void)y;
 	/*if (host_statistics(mach_host_self(), HOST_CPU_LOAD_INFO, reinterpret_cast<host_info_t>(&this->_cpuinfo), &this->_count) == KERN_SUCCESS)
 	{

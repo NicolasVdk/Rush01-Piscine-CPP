@@ -29,7 +29,7 @@ void	Date::display(int y)
 	mvprintw(y + 1, 0, " %s", buffer);
 }
 
-void	Date::displayMlx(int y)
+void	Date::displayMlx( int y , void  *mlx, void *win )
 {
 	(void)y;
 	/*time_t	rawtime;
