@@ -43,7 +43,9 @@
 #ifndef MLX_H
 
 #define	MLX_H
-
+# ifdef __cplusplus
+    extern "C" {
+# endif
 
 void	*mlx_init();
 /*
@@ -138,5 +140,9 @@ int	mlx_hook(void *win_ptr, int x_event, int x_mask,
 int	mlx_do_key_autorepeatoff(void *mlx_ptr);
 int	mlx_do_key_autorepeaton(void *mlx_ptr);
 int	mlx_do_sync(void *mlx_ptr);
+
+# ifdef __cplusplus
+    }
+# endif
 
 #endif /* MLX_H */
