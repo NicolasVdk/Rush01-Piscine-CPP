@@ -6,7 +6,7 @@
 /*   By: kperreau <kperreau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/27 18:32:50 by kperreau          #+#    #+#             */
-/*   Updated: 2015/06/28 02:49:12 by kperreau         ###   ########.fr       */
+/*   Updated: 2015/06/28 02:59:50 by kperreau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ int		main(int argc, char **argv)
 
 	if (argc > 1 && !strcmp(argv[1], "-mlx"))
 	{
-		
 		//interface = new mlx;
-		
 		char name[] = "ft_";
 		int	width = 500;
 		int	height = 1000;

@@ -26,7 +26,7 @@ HEADERS = $(patsubst %, $(INCLUDESDIR)/%, $(HFILES))
 
 ERRORFLAGS = -O3 -Wall -Werror -Wextra -march=native
 
-INCLUDEFLAGS = -I $(INCLUDESDIR)/
+INCLUDEFLAGS = -I $(INCLUDESDIR)/ -I./mlx
 
 LIB = -lncurses
 
@@ -39,6 +39,7 @@ CC = clang++
 all: $(NAME)
 
 $(NAME): $(OBJ)
+			make -j -C mlx/
 			$(CC) -g $(FLAGS) $(OBJ) $(LIB) $(MLX) -o $(NAME)
 
 re: fclean all
