@@ -22,6 +22,7 @@ class CPU: public IMonitorModule
 		CPU &		operator=(CPU const & rhs);
 		int		_heigh;
 		char	_CPU[1024];
+		int		_nCPU;
 		unsigned long long _previousIdleTicks;
 		unsigned long long _previousUserTicks;
 		unsigned long long _previousSystemTicks;
