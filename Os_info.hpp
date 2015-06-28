@@ -11,7 +11,9 @@ class Os_info: public IMonitorModule
 		virtual ~Os_info(void);
 
 		virtual int			getHeigh(void) const;
+
 		virtual void		display(int y);
+		virtual void		displayMlx(int y);
 
 	private:
 		int			_heigh;

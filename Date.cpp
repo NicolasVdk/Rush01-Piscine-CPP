@@ -20,6 +20,19 @@ void	Date::display(int y)
 {
 	time_t	rawtime;
 	struct	tm* timeinfo;
+	char 	buffer[26];
+
+	time (&rawtime);
+	timeinfo = localtime (&rawtime);
+	strftime (buffer, 26, "%c", timeinfo);
+	mvprintw(y, 0, "#------ Date -----#");
+	mvprintw(y + 1, 0, " %s", buffer);
+}
+
+void	Date::displayMlx(int y)
+{
+	/*time_t	rawtime;
+	struct	tm* timeinfo;
 	char 	buffer[25];
 
 	time (&rawtime);
@@ -27,4 +40,5 @@ void	Date::display(int y)
 	strftime (buffer, 25, "%c", timeinfo);
 	mvprintw(y, 0, "#------ Date -----#");
 	mvprintw(y + 1, 0, " %s", buffer);
+	*/
 }

@@ -37,6 +37,24 @@ void	CPU::display( int y )
 	}
 }
 
+void	CPU::displayMlx( int y )
+{
+	/*if (host_statistics(mach_host_self(), HOST_CPU_LOAD_INFO, reinterpret_cast<host_info_t>(&this->_cpuinfo), &this->_count) == KERN_SUCCESS)
+	{
+		this->_UserTicks = this->_cpuinfo.cpu_ticks[0] - this->_previousUserTicks;
+		this->_SystemTicks = this->_cpuinfo.cpu_ticks[1] - this->_previousSystemTicks;
+		this->_IdleTicks = this->_cpuinfo.cpu_ticks[2] - this->_previousIdleTicks;
+		this->_previousUserTicks = this->_cpuinfo.cpu_ticks[0];
+		this->_previousSystemTicks = this->_cpuinfo.cpu_ticks[1];
+		this->_previousIdleTicks = this->_cpuinfo.cpu_ticks[2];
+		mvprintw(y, 0, "#------ CPU ------#");
+		mvprintw(y + 1, 1, "%s", this->_CPU);
+		mvprintw(y + 2, 1, "User : %.2f%%", static_cast<float>(this->_UserTicks) / 4);
+		mvprintw(y + 3, 1, "Sys  : %.2f%%", static_cast<float>(this->_SystemTicks) / 4);
+		mvprintw(y + 4, 1, "Idle : %.2f%%", static_cast<float>(this->_IdleTicks) / 4);
+	}*/
+}
+
 CPU::~CPU(void)
 {
 	return ;

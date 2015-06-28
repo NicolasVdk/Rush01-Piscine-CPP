@@ -7,6 +7,7 @@ class IMonitorModule
 {
 	public:
 		virtual void display( int y ) = 0;
+		virtual void displayMlx( int y ) = 0;
 		virtual int getHeigh( void ) const = 0;	
 };
 

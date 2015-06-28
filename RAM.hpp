@@ -18,6 +18,7 @@ class RAM : public IMonitorModule
 		~RAM();
 		virtual int		getHeigh(void) const;
 		virtual void	display(int y);
+		virtual void	displayMlx(int y);
 
 	private:
 
